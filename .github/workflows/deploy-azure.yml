@@ -39,4 +39,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: app-maartenlouage-cms
-        package: build
+        package: .
+        startup-command: 'npm run start'
