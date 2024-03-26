@@ -35,11 +35,9 @@ jobs:
     - name: Build Strapi application
       run: NODE_ENV=production npm run build
 
-    - name: Package application
-      run: zip -r deploy.zip . -x "*.git*" -x ".github/*"
-
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
         app-name: app-maartenlouage-cms
-        package: deploy.zip
+        package: .
+        startup-command: 'npm run start'
