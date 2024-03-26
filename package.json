@@ -5,20 +5,20 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start": "node node_modules/@strapi/strapi/bin/strapi.js start",
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.21.0",
-    "@strapi/plugin-users-permissions": "4.21.0",
-    "@strapi/plugin-i18n": "4.21.0",
     "@strapi/plugin-cloud": "4.21.0",
+    "@strapi/plugin-i18n": "4.21.0",
+    "@strapi/plugin-users-permissions": "4.21.0",
+    "@strapi/strapi": "4.21.0",
     "better-sqlite3": "8.6.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
+    "strapi-provider-upload-azure-storage": "^3.4.0",
     "styled-components": "5.3.3"
   },
   "author": {
@@ -31,5 +31,8 @@
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "volta": {
+    "node": "20.11.1"
+  }
 }

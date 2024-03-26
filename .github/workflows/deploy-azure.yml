@@ -1,7 +1,7 @@
 name: Deploy to Azure Web App
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -13,6 +13,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: Production
     steps:
     - name: Azure login
       uses: azure/login@v1
@@ -29,13 +30,14 @@ jobs:
         node-version: '20'
 
     - name: Install dependencies
-      run: yarn install
+      run: npm install
 
     - name: Build Strapi application
-      run: yarn build
+      run: NODE_ENV=production npm run build
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
         app-name: app-maartenlouage-cms
         package: .
+        startup-command: 'npm run start'
